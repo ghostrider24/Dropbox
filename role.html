@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role Details - Principal Product Manager | Dropbox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dropbox-blue: #007EE5;
+            --deep-charcoal: #2C3E50;
+            --warm-gray: #7F8C8D;
+            --muted-teal: #16A085;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        
+        .workflow-step {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .workflow-step:hover {
+            transform: scale(1.05);
+        }
+        
+        .workflow-step.active {
+            background: var(--dropbox-blue);
+            color: white;
+        }
+        
+        .skills-container {
+            min-height: 400px;
+            position: relative;
+        }
+        
+        .skill-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .skill-item.selected {
+            background: var(--dropbox-blue);
+            color: white;
+        }
+        
+        .compatibility-meter {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .compatibility-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ef4444, #f59e0b, #10b981);
+            border-radius: 4px;
+            transition: width 0.8s ease;
+        }
+        
+        .requirement-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+        
+        .requirement-card.expanded {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+                    <div class="text-2xl font-bold text-gray-900">Dropbox</div>
+                    <div class="hidden md:flex space-x-6">
+                        <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">Overview</a>
+                        <a href="role.html" class="text-gray-900 font-medium">Role Details</a>
+                        <a href="apply.html" class="text-gray-600 hover:text-gray-900 transition-colors">Apply</a>
+                        <a href="culture.html" class="text-gray-600 hover:text-gray-900 transition-colors">Culture</a>
+                    </div>
+                </div>
+                <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                    Apply Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    Role Deep Dive
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Explore the detailed responsibilities, requirements, and growth opportunities for the Principal Product Manager role at Dropbox.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Workflows Showcase -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Media Collaboration Workflows</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Understand the complex media workflows you'll be shaping and optimizing for creative teams worldwide.
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Workflow Timeline -->
+                <div class="flex items-center justify-between mb-12 overflow-x-auto pb-4">
+                    <div class="workflow-step flex-shrink-0 bg-white border-2 border-blue-200 rounded-lg p-6 text-center min-w-48 mx-2" data-step="1">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Asset Ingestion</h3>
+                        <p class="text-sm text-gray-600">Upload and organize media assets from various sources</p>
+                    </div>
+                    
+                    <div class="workflow-step flex-shrink-0 bg-white border-2 border-green-200 rounded-lg p-6 text-center min-w-48 mx-2" data-step="2">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Collaborative Review</h3>
+                        <p class="text-sm text-gray-600">Real-time feedback and annotation on media assets</p>
+                    </div>
+                    
+                    <div class="workflow-step flex-shrink-0 bg-white border-2 border-purple-200 rounded-lg p-6 text-center min-w-48 mx-2" data-step="3">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Version Control</h3>
+                        <p class="text-sm text-gray-600">Track changes and manage iterative improvements</p>
+                    </div>
+                    
+                    <div class="workflow-step flex-shrink-0 bg-white border-2 border-orange-200 rounded-lg p-6 text-center min-w-48 mx-2" data-step="4">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Distribution</h3>
+                        <p class="text-sm text-gray-600">Share final assets across platforms and teams</p>
+                    </div>
+                </div>
+                
+                <!-- Workflow Details -->
+                <div class="bg-gray-50 rounded-2xl p-8">
+                    <div id="workflow-details">
+                        <div class="text-center text-gray-500">
+                            <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <p class="text-lg">Click on a workflow step above to learn more</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Matcher Tool -->
+    <section class="py-20 bg-gray-50" id="skills-matcher">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Skills Compatibility Assessment</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    See how your experience and skills align with what we're looking for in this role.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Skills Selection -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-6">Select Your Experience Areas</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-8">
+                            <div class="skill-item bg-blue-50 border-2 border-blue-200 rounded-lg p-4 text-center" data-skill="product-strategy" data-weight="25">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="font-medium text-gray-900 mb-2">Product Strategy</h4>
+                                <p class="text-sm text-gray-600">10+ years defining product vision and roadmap</p>
+                            </div>
+                            
+                            <div class="skill-item bg-green-50 border-2 border-green-200 rounded-lg p-4 text-center" data-skill="media-workflows" data-weight="20">
+                                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="font-medium text-gray-900 mb-2">Media Workflows</h4>
+                                <p class="text-sm text-gray-600">Experience with creative collaboration tools</p>
+                            </div>
+                            
+                            <div class="skill-item bg-purple-50 border-2 border-purple-200 rounded-lg p-4 text-center" data-skill="cross-functional" data-weight="20">
+                                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="font-medium text-gray-900 mb-2">Cross-Functional Leadership</h4>
+                                <p class="text-sm text-gray-600">Leading engineering, design, and business teams</p>
+                            </div>
+                            
+                            <div class="skill-item bg-orange-50 border-2 border-orange-200 rounded-lg p-4 text-center" data-skill="data-analytics" data-weight="15">
+                                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="font-medium text-gray-900 mb-2">Data & Analytics</h4>
+                                <p class="text-sm text-gray-600">Metrics-driven product development</p>
+                            </div>
+                            
+                            <div class="skill-item bg-red-50 border-2 border-red-200 rounded-lg p-4 text-center" data-skill="executive-communication" data-weight="10">
+                                <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="font-medium text-gray-900 mb-2">Executive Communication</h4>
+                                <p class="text-sm text-gray-600">Presenting to C-suite stakeholders</p>
+                            </div>
+                            
+                            <div class="skill-item bg-teal-50 border-2 border-teal-200 rounded-lg p-4 text-center" data-skill="mentoring" data-weight="10">
+                                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="font-medium text-gray-900 mb-2">Team Development</h4>
+                                <p class="text-sm text-gray-600">Mentoring and growing other PMs</p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button id="calculate-compatibility" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                                Calculate Compatibility
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Compatibility Results -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-6">Compatibility Analysis</h3>
+                    
+                    <div class="text-center mb-8">
+                        <div class="w-32 h-32 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-blue-600" id="compatibility-percentage">0%</div>
+                                <div class="text-sm text-gray-600">Match</div>
+                            </div>
+                        </div>
+                        
+                        <div class="compatibility-meter mb-4">
+                            <div class="compatibility-fill" id="compatibility-bar" style="width: 0%"></div>
+                        </div>
+                        
+                        <p class="text-sm text-gray-600 mb-6" id="compatibility-message">
+                            Select your skills to see compatibility analysis
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4" id="skill-analysis">
+                        <!-- Skill analysis will be populated here -->
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors font-medium">
+                            Apply with Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Breakdown -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Requirements Deep Dive</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Detailed breakdown of what we're looking for and why each requirement matters for success in this role.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="requirement-card bg-white border-2 border-gray-200 rounded-2xl p-8" data-requirement="experience">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">10+ Years Product Management</h3>
+                            <p class="text-gray-600 mb-4">Extensive experience in product strategy, development, and leadership at scale.</p>
+                            <div class="requirement-details hidden">
+                                <div class="bg-blue-50 p-4 rounded-lg mt-4">
+                                    <h4 class="font-medium text-gray-900 mb-2">Why This Matters:</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Complex stakeholder management across multiple teams</li>
+                                        <li>• Strategic thinking for long-term product vision</li>
+                                        <li>• Proven track record of delivering impact at scale</li>
+                                        <li>• Deep understanding of product lifecycle management</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="requirement-card bg-white border-2 border-gray-200 rounded-2xl p-8" data-requirement="media">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2M9 12l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Media Workflow Expertise</h3>
+                            <p class="text-gray-600 mb-4">Deep understanding of creative collaboration and media production processes.</p>
+                            <div class="requirement-details hidden">
+                                <div class="bg-green-50 p-4 rounded-lg mt-4">
+                                    <h4 class="font-medium text-gray-900 mb-2">Key Areas:</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Video editing and post-production workflows</li>
+                                        <li>• Creative review and approval processes</li>
+                                        <li>• Asset management and version control</li>
+                                        <li>• Real-time collaboration tools and platforms</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="requirement-card bg-white border-2 border-gray-200 rounded-2xl p-8" data-requirement="leadership">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Cross-Functional Leadership</h3>
+                            <p class="text-gray-600 mb-4">Proven ability to influence and align diverse stakeholders without direct authority.</p>
+                            <div class="requirement-details hidden">
+                                <div class="bg-purple-50 p-4 rounded-lg mt-4">
+                                    <h4 class="font-medium text-gray-900 mb-2">Core Competencies:</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Executive communication and presentation skills</li>
+                                        <li>• Conflict resolution and consensus building</li>
+                                        <li>• Strategic alignment across organizational boundaries</li>
+                                        <li>• Mentoring and developing other product managers</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="requirement-card bg-white border-2 border-gray-200 rounded-2xl p-8" data-requirement="analytics">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Data-Driven Decision Making</h3>
+                            <p class="text-gray-600 mb-4">Strong analytical skills with ability to define and measure key product metrics.</p>
+                            <div class="requirement-details hidden">
+                                <div class="bg-orange-50 p-4 rounded-lg mt-4">
+                                    <h4 class="font-medium text-gray-900 mb-2">Analytical Capabilities:</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• A/B testing and experimental design</li>
+                                        <li>• User behavior analysis and insights</li>
+                                        <li>• Business impact measurement</li>
+                                        <li>• Predictive modeling and forecasting</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-br from-blue-600 to-blue-800">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Ready to Take the Next Step?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                If this role resonates with your experience and passion, we'd love to hear from you.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 font-medium">
+                    Apply Now
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-blue-600 transition-all font-medium">
+                    Schedule a Conversation
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <div class="text-2xl font-bold mb-4">Dropbox</div>
+                <p class="text-gray-400 mb-6">Designing a more enlightened way of working</p>
+                <div class="text-sm text-gray-500">
+                    © 2024 Dropbox, Inc. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Role-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeWorkflowShowcase();
+            initializeSkillsMatcher();
+            initializeRequirementCards();
+        });
+
+        function initializeWorkflowShowcase() {
+            const workflowSteps = document.querySelectorAll('.workflow-step');
+            const detailsContainer = document.getElementById('workflow-details');
+            
+            const workflowData = {
+                1: {
+                    title: 'Asset Ingestion & Organization',
+                    description: 'The foundation of media collaboration starts with seamless asset ingestion. You\'ll be shaping how creative teams upload, organize, and manage vast libraries of media assets across different formats and sources.',
+                    keyPoints: [
+                        'Multi-format support (video, audio, images, documents)',
+                        'Automated metadata extraction and tagging',
+                        'Bulk upload and batch processing workflows',
+                        'Integration with popular creative tools'
+                    ],
+                    challenges: 'Handling large file sizes, varied formats, and maintaining quality while ensuring fast upload speeds across global teams.'
+                },
+                2: {
+                    title: 'Collaborative Review & Feedback',
+                    description: 'Real-time collaboration is at the heart of modern creative workflows. This involves building intuitive review experiences that allow teams to provide precise feedback directly on media assets.',
+                    keyPoints: [
+                        'Frame-accurate commenting on video',
+                        'Visual annotation tools for images',
+                        'Real-time collaboration features',
+                        'Version comparison and diff tools'
+                    ],
+                    challenges: 'Maintaining performance with real-time updates while handling concurrent users and complex annotation data.'
+                },
+                3: {
+                    title: 'Version Control & Iteration',
+                    description: 'Creative projects evolve through multiple iterations. You\'ll define how teams track changes, manage versions, and maintain creative continuity throughout the production process.',
+                    keyPoints: [
+                        'Automated version tracking',
+                        'Branching and merging workflows',
+                        'Change history and audit trails',
+                        'Smart conflict resolution'
+                    ],
+                    challenges: 'Balancing simplicity for creative users with powerful version control capabilities for complex projects.'
+                },
+                4: {
+                    title: 'Distribution & Publishing',
+                    description: 'The final step involves getting creative assets to their intended destinations efficiently while maintaining quality and ensuring proper access controls.',
+                    keyPoints: [
+                        'Multi-platform distribution',
+                        'Format optimization for different channels',
+                        'Access control and permissions',
+                        'Performance monitoring and analytics'
+                    ],
+                    challenges: 'Optimizing for various output formats while maintaining creative intent and managing distribution rights.'
+                }
+            };
+            
+            workflowSteps.forEach(step => {
+                step.addEventListener('click', () => {
+                    const stepNumber = parseInt(step.dataset.step);
+                    const data = workflowData[stepNumber];
+                    
+                    // Update active state
+                    workflowSteps.forEach(s => s.classList.remove('active'));
+                    step.classList.add('active');
+                    
+                    // Update details
+                    detailsContainer.innerHTML = `
+                        <div class="grid lg:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4">${data.title}</h3>
+                                <p class="text-gray-600 mb-6">${data.description}</p>
+                                
+                                <h4 class="font-semibold text-gray-900 mb-3">Key Features:</h4>
+                                <ul class="space-y-2">
+                                    ${data.keyPoints.map(point => `
+                                        <li class="flex items-start space-x-2">
+                                            <div class="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                                            <span class="text-gray-600">${point}</span>
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <div class="bg-white p-6 rounded-xl border">
+                                    <h4 class="font-semibold text-gray-900 mb-3">Key Challenges</h4>
+                                    <p class="text-gray-600">${data.challenges}</p>
+                                    
+                                    <div class="mt-6">
+                                        <h5 class="font-medium text-gray-900 mb-2">Your Role:</h5>
+                                        <p class="text-sm text-gray-600">Define product requirements, prioritize features, and work with engineering to build scalable solutions that address these challenges while maintaining exceptional user experience.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Animate the update
+                    anime({
+                        targets: detailsContainer,
+                        opacity: [0, 1],
+                        translateY: [20, 0],
+                        duration: 500,
+                        easing: 'easeOutCubic'
+                    });
+                });
+            });
+        }
+
+        function initializeSkillsMatcher() {
+            const skillItems = document.querySelectorAll('.skill-item');
+            const calculateBtn = document.getElementById('calculate-compatibility');
+            const compatibilityPercentage = document.getElementById('compatibility-percentage');
+            const compatibilityBar = document.getElementById('compatibility-bar');
+            const compatibilityMessage = document.getElementById('compatibility-message');
+            const skillAnalysis = document.getElementById('skill-analysis');
+            
+            let selectedSkills = new Set();
+            
+            skillItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const skill = item.dataset.skill;
+                    
+                    if (selectedSkills.has(skill)) {
+                        selectedSkills.delete(skill);
+                        item.classList.remove('selected');
+                    } else {
+                        selectedSkills.add(skill);
+                        item.classList.add('selected');
+                    }
+                    
+                    // Update UI
+                    updateCompatibilityScore();
+                });
+            });
+            
+            function updateCompatibilityScore() {
+                const totalWeight = Array.from(selectedSkills).reduce((sum, skill) => {
+                    const element = document.querySelector(`[data-skill="${skill}"]`);
+                    return sum + parseInt(element.dataset.weight);
+                }, 0);
+                
+                const maxWeight = 100;
+                const percentage = Math.min(Math.round((totalWeight / maxWeight) * 100), 100);
+                
+                // Update percentage display
+                anime({
+                    targets: compatibilityPercentage,
+                    innerHTML: [parseInt(compatibilityPercentage.textContent) || 0, percentage],
+                    duration: 800,
+                    round: 1,
+                    easing: 'easeOutCubic'
+                });
+                
+                // Update progress bar
+                anime({
+                    targets: compatibilityBar,
+                    width: `${percentage}%`,
+                    duration: 800,
+                    easing: 'easeOutCubic'
+                });
+                
+                // Update message and analysis
+                let message, analysis;
+                if (percentage >= 80) {
+                    message = "Excellent match! Your experience aligns strongly with this role.";
+                    analysis = generateAnalysis('excellent', selectedSkills);
+                } else if (percentage >= 60) {
+                    message = "Good match! You have solid relevant experience for this position.";
+                    analysis = generateAnalysis('good', selectedSkills);
+                } else if (percentage >= 40) {
+                    message = "Moderate match. Some experience gaps but potential for growth.";
+                    analysis = generateAnalysis('moderate', selectedSkills);
+                } else {
+                    message = "Limited match. Consider gaining more experience in key areas.";
+                    analysis = generateAnalysis('limited', selectedSkills);
+                }
+                
+                compatibilityMessage.textContent = message;
+                skillAnalysis.innerHTML = analysis;
+            }
+            
+            function generateAnalysis(level, skills) {
+                const skillData = {
+                    'product-strategy': 'Product Strategy & Vision',
+                    'media-workflows': 'Media & Creative Workflows',
+                    'cross-functional': 'Cross-Functional Leadership',
+                    'data-analytics': 'Data-Driven Decision Making',
+                    'executive-communication': 'Executive Communication',
+                    'mentoring': 'Team Development & Mentoring'
+                };
+                
+                let analysis = '';
+                
+                if (level === 'excellent') {
+                    analysis = `
+                        <div class="bg-green-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-medium text-green-900 mb-2">Strong Areas:</h4>
+                            <p class="text-sm text-green-700">${Array.from(skills).map(s => skillData[s]).join(', ')}</p>
+                        </div>
+                        <div class="text-sm text-gray-600">
+                            <p>Your experience profile suggests you're well-positioned for this senior role. Consider highlighting specific achievements in these areas during your application.</p>
+                        </div>
+                    `;
+                } else if (level === 'good') {
+                    analysis = `
+                        <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-medium text-blue-900 mb-2">Relevant Experience:</h4>
+                            <p class="text-sm text-blue-700">${Array.from(skills).map(s => skillData[s]).join(', ')}</p>
+                        </div>
+                        <div class="text-sm text-gray-600">
+                            <p>You have solid foundations. Focus on demonstrating impact and leadership in your application to strengthen your candidacy.</p>
+                        </div>
+                    `;
+                } else if (level === 'moderate') {
+                    analysis = `
+                        <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-medium text-yellow-900 mb-2">Areas to Develop:</h4>
+                            <p class="text-sm text-yellow-700">Consider gaining more experience in media workflows and cross-functional leadership.</p>
+                        </div>
+                        <div class="text-sm text-gray-600">
+                            <p>While you have some relevant experience, focus on transferable skills and demonstrate quick learning ability in your application.</p>
+                        </div>
+                    `;
+                } else {
+                    analysis = `
+                        <div class="bg-red-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-medium text-red-900 mb-2">Growth Areas:</h4>
+                            <p class="text-sm text-red-700">This role requires significant product management experience and media industry knowledge.</p>
+                        </div>
+                        <div class="text-sm text-gray-600">
+                            <p>Consider applying for more junior PM roles first, or gaining additional experience in media/creative technology before applying.</p>
+                        </div>
+                    `;
+                }
+                
+                return analysis;
+            }
+        }
+
+        function initializeRequirementCards() {
+            const requirementCards = document.querySelectorAll('.requirement-card');
+            
+            requirementCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const details = card.querySelector('.requirement-details');
+                    const isExpanded = card.classList.contains('expanded');
+                    
+                    // Close all other cards
+                    requirementCards.forEach(otherCard => {
+                        if (otherCard !== card) {
+                            otherCard.classList.remove('expanded');
+                            const otherDetails = otherCard.querySelector('.requirement-details');
+                            if (otherDetails) {
+                                anime({
+                                    targets: otherDetails,
+                                    height: 0,
+                                    opacity: 0,
+                                    duration: 300,
+                                    easing: 'easeOutCubic'
+                                });
+                            }
+                        }
+                    });
+                    
+                    // Toggle current card
+                    if (isExpanded) {
+                        card.classList.remove('expanded');
+                        anime({
+                            targets: details,
+                            height: 0,
+                            opacity: 0,
+                            duration: 300,
+                            easing: 'easeOutCubic'
+                        });
+                    } else {
+                        card.classList.add('expanded');
+                        details.style.display = 'block';
+                        anime({
+                            targets: details,
+                            height: 'auto',
+                            opacity: [0, 1],
+                            duration: 500,
+                            easing: 'easeOutCubic'
+                        });
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

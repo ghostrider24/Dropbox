@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Culture - Principal Product Manager | Dropbox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dropbox-blue: #007EE5;
+            --deep-charcoal: #2C3E50;
+            --warm-gray: #7F8C8D;
+            --muted-teal: #16A085;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        
+        .culture-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .culture-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-card {
+            min-height: 300px;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .testimonial-card.inactive {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        
+        .quiz-option {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            background-color: #f3f4f6;
+            transform: translateY(-2px);
+        }
+        
+        .quiz-option.selected {
+            background-color: var(--dropbox-blue);
+            color: white;
+        }
+        
+        .benefit-item {
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .manifesto-text {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .manifesto-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+                    <div class="text-2xl font-bold text-gray-900">Dropbox</div>
+                    <div class="hidden md:flex space-x-6">
+                        <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">Overview</a>
+                        <a href="role.html" class="text-gray-600 hover:text-gray-900 transition-colors">Role Details</a>
+                        <a href="apply.html" class="text-gray-600 hover:text-gray-900 transition-colors">Apply</a>
+                        <a href="culture.html" class="text-gray-900 font-medium">Culture</a>
+                    </div>
+                </div>
+                <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                    Apply Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    Our Culture & Values
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Discover what makes Dropbox a unique place to work and grow your career in product management.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual First Manifesto -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Virtual First Philosophy</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        We're designing the future of work with our Virtual First model. This isn't just remote work—it's a fundamental reimagining of how we collaborate, create, and thrive together.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="manifesto-text">
+                            <h3 class="font-semibold text-gray-900 mb-2">🚀 Everything is a prototype</h3>
+                            <p class="text-gray-600">We treat everything we build—from our culture to our products—as creative experiments. We ship to learn and we're only ever 1% done.</p>
+                        </div>
+                        
+                        <div class="manifesto-text">
+                            <h3 class="font-semibold text-gray-900 mb-2">⏰ Go async by default</h3>
+                            <p class="text-gray-600">We save meetings for the 3 D's: discussion, debate, and decision-making. Everything else happens through thoughtful written communication.</p>
+                        </div>
+                        
+                        <div class="manifesto-text">
+                            <h3 class="font-semibold text-gray-900 mb-2">❤️ Make (virtual) work human</h3>
+                            <p class="text-gray-600">We build compassionate culture and products that prioritize human needs, well-being, and meaningful connections across distances.</p>
+                        </div>
+                        
+                        <div class="manifesto-text">
+                            <h3 class="font-semibold text-gray-900 mb-2">✨ Keep it simple</h3>
+                            <p class="text-gray-600">We eliminate work about work. Our processes and products are designed to be intuitive, reducing friction and cognitive load.</p>
+                        </div>
+                        
+                        <div class="manifesto-text">
+                            <h3 class="font-semibold text-gray-900 mb-2">🎨 Design for joy</h3>
+                            <p class="text-gray-600">Even in enterprise software, we build play into everything we do. Creative cultures are more inventive and innovative.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="resources/virtual-first.png" alt="Virtual First Work Culture" class="w-full h-auto rounded-2xl shadow-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Core Values</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    These values aren't just posters on walls—they guide our decisions, shape our culture, and drive our impact.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="culture-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Make Work Human</h3>
+                    <p class="text-gray-600 mb-4">We design compassionate culture and products that prioritize human needs and well-being, both for our employees and our customers.</p>
+                    <div class="text-sm text-gray-500">
+                        <strong>Manifests in:</strong> Flexible work arrangements, mental health support, user-centered design
+                    </div>
+                </div>
+                
+                <div class="culture-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Be Worthy of Trust</h3>
+                    <p class="text-gray-600 mb-4">Integrity is our foundation. We protect data, maintain privacy, and build products that users can depend on with their most important work.</p>
+                    <div class="text-sm text-gray-500">
+                        <strong>Manifests in:</strong> Security-first design, transparent communication, ethical decision-making
+                    </div>
+                </div>
+                
+                <div class="culture-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Own It</h3>
+                    <p class="text-gray-600 mb-4">We take responsibility from start to finish. When we see a problem, we fix it. When we spot an opportunity, we seize it.</p>
+                    <div class="text-sm text-gray-500">
+                        <strong>Manifests in:</strong> Proactive problem-solving, accountability, initiative-taking
+                    </div>
+                </div>
+                
+                <div class="culture-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Keep It Simple</h3>
+                    <p class="text-gray-600 mb-4">Complexity is the enemy of execution. We build products and processes that do a few things really well, eliminating work about work.</p>
+                    <div class="text-sm text-gray-500">
+                        <strong>Manifests in:</strong> Clean product design, streamlined processes, clear communication
+                    </div>
+                </div>
+                
+                <div class="culture-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">They Win, We Win</h3>
+                    <p class="text-gray-600 mb-4">Success is mutual. When our customers, partners, and teammates succeed, we all succeed. We create win-win situations in everything we do.</p>
+                    <div class="text-sm text-gray-500">
+                        <strong>Manifests in:</strong> Customer-centric decisions, partnership approach, team collaboration
+                    </div>
+                </div>
+                
+                <div class="culture-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.5a1.5 1.5 0 011.5 1.5v1.5a1.5 1.5 0 01-1.5 1.5H9m6 0h1.5a1.5 1.5 0 011.5 1.5v1.5a1.5 1.5 0 01-1.5 1.5H15m-9 3h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Design for Joy</h3>
+                    <p class="text-gray-600 mb-4">Even in enterprise software, we infuse delight and play into our work. Creative cultures are more inventive, and joy fuels innovation.</p>
+                    <div class="text-sm text-gray-500">
+                        <strong>Manifests in:</strong> Playful product details, celebratory moments, creative team activities
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Hear from Our Team</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Real stories from Dropboxers about what it's like to work here and grow your career.
+                </p>
+            </div>
+            
+            <div class="relative max-w-4xl mx-auto">
+                <div class="testimonial-carousel">
+                    <div class="testimonial-card active bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8">
+                        <div class="flex items-center space-x-4 mb-6">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&crop=face" alt="Sarah Chen" class="w-16 h-16 rounded-full object-cover">
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Sarah Chen</h3>
+                                <p class="text-gray-600">Senior Product Manager, Dropbox Replay</p>
+                            </div>
+                        </div>
+                        <blockquote class="text-lg text-gray-700 mb-6 italic">
+                            "What I love most about Dropbox is the autonomy to really own your product area. I'm not just executing on someone else's vision—I'm partnering with leadership to shape the future of creative collaboration. The Virtual First model has actually made us more intentional about how we work together."
+                        </blockquote>
+                        <div class="flex items-center space-x-4 text-sm text-gray-600">
+                            <span>🎬 Media & Creative Tools</span>
+                            <span>📍 San Francisco Bay Area</span>
+                            <span>⏰ 3 years at Dropbox</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card inactive bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 absolute inset-0">
+                        <div class="flex items-center space-x-4 mb-6">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="Marcus Rodriguez" class="w-16 h-16 rounded-full object-cover">
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Marcus Rodriguez</h3>
+                                <p class="text-gray-600">Principal Product Manager, Core Product</p>
+                            </div>
+                        </div>
+                        <blockquote class="text-lg text-gray-700 mb-6 italic">
+                            "The level of trust here is incredible. I have direct access to C-level executives for product decisions, and they genuinely value PM input. The 'Make Work Human' value isn't just talk—we have real flexibility and support for work-life integration."
+                        </blockquote>
+                        <div class="flex items-center space-x-4 text-sm text-gray-600">
+                            <span>⚡ Core Product & Infrastructure</span>
+                            <span>📍 Austin, TX</span>
+                            <span>⏰ 5 years at Dropbox</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card inactive bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-8 absolute inset-0">
+                        <div class="flex items-center space-x-4 mb-6">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Priya Patel" class="w-16 h-16 rounded-full object-cover">
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Priya Patel</h3>
+                                <p class="text-gray-600">Director of Product, New Initiatives</p>
+                            </div>
+                        </div>
+                        <blockquote class="text-lg text-gray-700 mb-6 italic">
+                            "Dropbox has given me the opportunity to build products from 0 to 1, which is rare at this scale. The 'Everything is a prototype' mindset means we're constantly experimenting and learning. Plus, the global talent pool means I work with amazing people from around the world."
+                        </blockquote>
+                        <div class="flex items-center space-x-4 text-sm text-gray-600">
+                            <span>🚀 New Product Innovation</span>
+                            <span>📍 Remote (Toronto)</span>
+                            <span>⏰ 4 years at Dropbox</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Navigation -->
+                <div class="flex justify-center space-x-3 mt-8">
+                    <button class="testimonial-nav w-3 h-3 bg-blue-600 rounded-full" data-slide="0"></button>
+                    <button class="testimonial-nav w-3 h-3 bg-gray-300 rounded-full" data-slide="1"></button>
+                    <button class="testimonial-nav w-3 h-3 bg-gray-300 rounded-full" data-slide="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Quiz -->
+    <section class="py-20 bg-gray-50" id="culture-quiz">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Culture Fit Assessment</h2>
+                <p class="text-lg text-gray-600">
+                    Answer a few questions to see how well your work style aligns with Dropbox's culture and values.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-2xl p-8 shadow-lg">
+                <div id="quiz-container">
+                    <!-- Quiz questions will be populated here -->
+                </div>
+                
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <div class="flex items-center justify-between">
+                        <div class="text-sm text-gray-600">
+                            Question <span id="current-question">1</span> of <span id="total-questions">5</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <button id="prev-question" class="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors" disabled>
+                                Previous
+                            </button>
+                            <button id="next-question" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                                Next
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" id="quiz-progress" style="width: 20%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quiz Results -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg mt-8 hidden" id="quiz-results">
+                <div class="text-center">
+                    <div class="w-32 h-32 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-blue-600" id="culture-match-score">0%</div>
+                            <div class="text-sm text-gray-600">Culture Match</div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4" id="culture-result-title">Great Match!</h3>
+                    <p class="text-lg text-gray-600 mb-8" id="culture-result-description">
+                        Your work style and values align well with Dropbox's culture.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-green-600" id="virtual-first-score">0%</div>
+                            <div class="text-sm text-gray-600">Virtual First</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-600" id="collaboration-score">0%</div>
+                            <div class="text-sm text-gray-600">Collaboration</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-purple-600" id="innovation-score">0%</div>
+                            <div class="text-sm text-gray-600">Innovation</div>
+                        </div>
+                    </div>
+                    
+                    <button class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                        Apply with Culture Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits & Perks -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Benefits & Perks</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    We take care of our team with comprehensive benefits designed to support your health, growth, and well-being.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="benefit-item text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Competitive Compensation</h3>
+                    <p class="text-sm text-gray-600">Market-leading salary, equity, and performance bonuses</p>
+                </div>
+                
+                <div class="benefit-item text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Health & Wellness</h3>
+                    <p class="text-sm text-gray-600">Premium health insurance, mental health support, and wellness stipends</p>
+                </div>
+                
+                <div class="benefit-item text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Learning & Development</h3>
+                    <p class="text-sm text-gray-600">Education stipends, mentorship programs, and conference opportunities</p>
+                </div>
+                
+                <div class="benefit-item text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Flexible Work</h3>
+                    <p class="text-sm text-gray-600">Virtual First model, flexible hours, and home office setup support</p>
+                </div>
+                
+                <div class="benefit-item text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Generous PTO</h3>
+                    <p class="text-sm text-gray-600">Unlimited vacation, volunteer time off, and company-wide recharge weeks</p>
+                </div>
+                
+                <div class="benefit-item text-center">
+                    <div class="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Family Support</h3>
+                    <p class="text-sm text-gray-600">Parental leave, family planning support, and childcare benefits</p>
+                </div>
+                
+                <div class="benefit-item text-center">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Global Community</h3>
+                    <p class="text-sm text-gray-600">Virtual events, team gatherings, and Dropbox Studios worldwide</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-br from-blue-600 to-blue-800">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Ready to Join Our Culture?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                If Dropbox's values and culture resonate with you, we'd love to explore how you can contribute to our mission of designing a more enlightened way of working.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 font-medium">
+                    Apply Now
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-blue-600 transition-all font-medium">
+                    Schedule a Conversation
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <div class="text-2xl font-bold mb-4">Dropbox</div>
+                <p class="text-gray-400 mb-6">Designing a more enlightened way of working</p>
+                <div class="text-sm text-gray-500">
+                    © 2024 Dropbox, Inc. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Culture page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeManifestoAnimation();
+            initializeTestimonialCarousel();
+            initializeCultureQuiz();
+        });
+
+        function initializeManifestoAnimation() {
+            const manifestoTexts = document.querySelectorAll('.manifesto-text');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 200);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            manifestoTexts.forEach(text => observer.observe(text));
+        }
+
+        function initializeTestimonialCarousel() {
+            const testimonials = document.querySelectorAll('.testimonial-card');
+            const navButtons = document.querySelectorAll('.testimonial-nav');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                testimonials.forEach((card, i) => {
+                    if (i === index) {
+                        card.classList.remove('inactive');
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                        card.classList.add('inactive');
+                    }
+                });
+                
+                navButtons.forEach((btn, i) => {
+                    if (i === index) {
+                        btn.classList.remove('bg-gray-300');
+                        btn.classList.add('bg-blue-600');
+                    } else {
+                        btn.classList.remove('bg-blue-600');
+                        btn.classList.add('bg-gray-300');
+                    }
+                });
+                
+                currentSlide = index;
+            }
+            
+            navButtons.forEach((btn, index) => {
+                btn.addEventListener('click', () => showSlide(index));
+            });
+            
+            // Auto-rotate testimonials
+            setInterval(() => {
+                const nextSlide = (currentSlide + 1) % testimonials.length;
+                showSlide(nextSlide);
+            }, 5000);
+        }
+
+        function initializeCultureQuiz() {
+            const quizData = [
+                {
+                    question: "How do you prefer to collaborate with your team?",
+                    options: [
+                        { text: "Async-first with thoughtful written communication", weight: { virtual: 3, collaboration: 2, innovation: 1 } },
+                        { text: "Regular video calls and real-time discussions", weight: { virtual: 1, collaboration: 3, innovation: 2 } },
+                        { text: "In-person meetings and whiteboard sessions", weight: { virtual: 0, collaboration: 2, innovation: 3 } },
+                        { text: "A mix of all approaches depending on the situation", weight: { virtual: 2, collaboration: 3, innovation: 2 } }
+                    ]
+                },
+                {
+                    question: "When facing a complex problem, you typically:",
+                    options: [
+                        { text: "Break it down into simple, testable hypotheses", weight: { virtual: 2, collaboration: 1, innovation: 3 } },
+                        { text: "Gather diverse perspectives and brainstorm solutions", weight: { virtual: 1, collaboration: 3, innovation: 2 } },
+                        { text: "Research thoroughly before taking action", weight: { virtual: 2, collaboration: 1, innovation: 2 } },
+                        { text: "Start with a prototype and iterate quickly", weight: { virtual: 2, collaboration: 2, innovation: 3 } }
+                    ]
+                },
+                {
+                    question: "Your ideal work environment includes:",
+                    options: [
+                        { text: "Flexible hours and location independence", weight: { virtual: 3, collaboration: 2, innovation: 2 } },
+                        { text: "Structured schedules and clear processes", weight: { virtual: 1, collaboration: 2, innovation: 1 } },
+                        { text: "Creative freedom and experimentation time", weight: { virtual: 2, collaboration: 1, innovation: 3 } },
+                        { text: "Strong team connections and regular interaction", weight: { virtual: 1, collaboration: 3, innovation: 2 } }
+                    ]
+                },
+                {
+                    question: "When making decisions, you prioritize:",
+                    options: [
+                        { text: "User needs and human impact", weight: { virtual: 2, collaboration: 3, innovation: 2 } },
+                        { text: "Data and measurable outcomes", weight: { virtual: 2, collaboration: 1, innovation: 2 } },
+                        { text: "Innovation and breakthrough ideas", weight: { virtual: 1, collaboration: 2, innovation: 3 } },
+                        { text: "Team alignment and consensus", weight: { virtual: 1, collaboration: 3, innovation: 1 } }
+                    ]
+                },
+                {
+                    question: "Your approach to learning and growth is:",
+                    options: [
+                        { text: "Continuous experimentation and learning from failures", weight: { virtual: 2, collaboration: 2, innovation: 3 } },
+                        { text: "Structured learning with clear goals and milestones", weight: { virtual: 1, collaboration: 2, innovation: 1 } },
+                        { text: "Collaborative learning with mentors and peers", weight: { virtual: 1, collaboration: 3, innovation: 2 } },
+                        { text: "Self-directed exploration of new ideas and technologies", weight: { virtual: 3, collaboration: 1, innovation: 3 } }
+                    ]
+                }
+            ];
+            
+            const quizContainer = document.getElementById('quiz-container');
+            const currentQuestionSpan = document.getElementById('current-question');
+            const totalQuestionsSpan = document.getElementById('total-questions');
+            const progressBar = document.getElementById('quiz-progress');
+            const prevButton = document.getElementById('prev-question');
+            const nextButton = document.getElementById('next-question');
+            const resultsContainer = document.getElementById('quiz-results');
+            
+            let currentQuestion = 0;
+            let answers = [];
+            
+            totalQuestionsSpan.textContent = quizData.length;
+            
+            function renderQuestion() {
+                const question = quizData[currentQuestion];
+                
+                quizContainer.innerHTML = `
+                    <h3 class="text-xl font-semibold text-gray-900 mb-6">${question.question}</h3>
+                    <div class="space-y-3">
+                        ${question.options.map((option, index) => `
+                            <div class="quiz-option p-4 border-2 border-gray-200 rounded-lg" data-option="${index}">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-5 h-5 border-2 border-gray-300 rounded-full flex-shrink-0"></div>
+                                    <span class="text-gray-700">${option.text}</span>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                // Update progress
+                currentQuestionSpan.textContent = currentQuestion + 1;
+                progressBar.style.width = `${((currentQuestion + 1) / quizData.length) * 100}%`;
+                
+                // Update buttons
+                prevButton.disabled = currentQuestion === 0;
+                nextButton.textContent = currentQuestion === quizData.length - 1 ? 'Get Results' : 'Next';
+                
+                // Add option click handlers
+                const options = quizContainer.querySelectorAll('.quiz-option');
+                options.forEach((option, index) => {
+                    option.addEventListener('click', () => selectOption(index));
+                    
+                    // Restore previous selection
+                    if (answers[currentQuestion] === index) {
+                        option.classList.add('selected');
+                        option.querySelector('.w-5').classList.add('bg-blue-600', 'border-blue-600');
+                    }
+                });
+            }
+            
+            function selectOption(optionIndex) {
+                answers[currentQuestion] = optionIndex;
+                
+                // Update UI
+                const options = quizContainer.querySelectorAll('.quiz-option');
+                options.forEach((option, index) => {
+                    if (index === optionIndex) {
+                        option.classList.add('selected');
+                        option.querySelector('.w-5').classList.add('bg-blue-600', 'border-blue-600');
+                    } else {
+                        option.classList.remove('selected');
+                        option.querySelector('.w-5').classList.remove('bg-blue-600', 'border-blue-600');
+                    }
+                });
+            }
+            
+            function calculateResults() {
+                let virtualScore = 0;
+                let collaborationScore = 0;
+                let innovationScore = 0;
+                
+                answers.forEach((answerIndex, questionIndex) => {
+                    const option = quizData[questionIndex].options[answerIndex];
+                    virtualScore += option.weight.virtual;
+                    collaborationScore += option.weight.collaboration;
+                    innovationScore += option.weight.innovation;
+                });
+                
+                const maxPossible = quizData.length * 3;
+                const virtualPercent = Math.round((virtualScore / maxPossible) * 100);
+                const collaborationPercent = Math.round((collaborationScore / maxPossible) * 100);
+                const innovationPercent = Math.round((innovationScore / maxPossible) * 100);
+                const overallPercent = Math.round((virtualPercent + collaborationPercent + innovationPercent) / 3);
+                
+                // Update results
+                document.getElementById('culture-match-score').textContent = `${overallPercent}%`;
+                document.getElementById('virtual-first-score').textContent = `${virtualPercent}%`;
+                document.getElementById('collaboration-score').textContent = `${collaborationPercent}%`;
+                document.getElementById('innovation-score').textContent = `${innovationPercent}%`;
+                
+                // Update result message
+                let title, description;
+                if (overallPercent >= 80) {
+                    title = "Excellent Culture Fit!";
+                    description = "Your work style and values are highly aligned with Dropbox's culture. You'd thrive in our Virtual First environment.";
+                } else if (overallPercent >= 60) {
+                    title = "Good Culture Match";
+                    description = "You share many values with Dropbox's culture. There might be some areas to explore further during the interview process.";
+                } else {
+                    title = "Potential Culture Fit";
+                    description = "While there are some differences, you may still find success at Dropbox. Consider how our values align with your career goals.";
+                }
+                
+                document.getElementById('culture-result-title').textContent = title;
+                document.getElementById('culture-result-description').textContent = description;
+                
+                // Show results
+                document.querySelector('.bg-white.rounded-2xl.p-8.shadow-lg').style.display = 'none';
+                resultsContainer.classList.remove('hidden');
+                
+                // Animate results
+                anime({
+                    targets: resultsContainer,
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 800,
+                    easing: 'easeOutCubic'
+                });
+            }
+            
+            prevButton.addEventListener('click', () => {
+                if (currentQuestion > 0) {
+                    currentQuestion--;
+                    renderQuestion();
+                }
+            });
+            
+            nextButton.addEventListener('click', () => {
+                if (currentQuestion < quizData.length - 1) {
+                    currentQuestion++;
+                    renderQuestion();
+                } else {
+                    calculateResults();
+                }
+            });
+            
+            // Initialize first question
+            renderQuestion();
+        }
+    </script>
+</body>
+</html>
